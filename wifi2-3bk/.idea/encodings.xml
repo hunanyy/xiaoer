@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/wifi_info/MainActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/wifi_info/PositionActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/wifi_info/TrainingActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/wifi_info/algorithm/Gaussian.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/wifi_info/algorithm/WKNN.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/wifi_info/database/WifiDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/wifi_info/svghelper/IPMapView.java" charset="UTF-8" />
+  </component>
+</project>

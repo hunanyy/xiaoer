@@ -1,0 +1,84 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.wifi_info"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:5-47
+8        android:minSdkVersion="8"
+8-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:5-47
+9        android:targetSdkVersion="17" />
+9-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:15-44
+10
+11    <instrumentation
+11-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:7:5-9:57
+12        android:name="android.test.InstrumentationTestRunner"
+12-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:8:9-62
+13        android:targetPackage="com.example.wifi_info" />
+13-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:9:9-54
+14
+15    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+15-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:13:5-76
+15-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:13:22-73
+16    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+16-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:14:5-76
+16-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:14:22-73
+17
+18    <application
+18-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:16:5-47:19
+19        android:allowBackup="true"
+19-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:17:9-35
+20        android:debuggable="true"
+21        android:icon="@drawable/ic_launcher"
+21-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:18:9-45
+22        android:label="@string/app_name"
+22-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:19:9-41
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme" >
+24-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:20:9-40
+25        <uses-library android:name="android.test.runner" />
+25-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:21:9-60
+25-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:21:23-57
+26
+27        <activity
+27-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:23:9-31:20
+28            android:name="com.example.wifi_info.MainActivity"
+28-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:24:13-41
+29            android:label="@string/app_name" >
+29-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:25:13-45
+30            <intent-filter>
+30-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:26:13-30:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:27:17-69
+31-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:27:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:29:17-77
+33-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:29:27-74
+34            </intent-filter>
+35        </activity>
+36        <activity
+36-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:32:9-35:20
+37            android:name="com.example.wifi_info.PositionActivity"
+37-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:33:13-45
+38            android:label="@string/app_name" >
+38-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:34:13-45
+39        </activity>
+40        <activity
+40-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:36:9-39:20
+41            android:name="com.example.wifi_info.TrainingActivity"
+41-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:37:13-45
+42            android:label="@string/app_name" >
+42-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:38:13-45
+43        </activity>
+44        <activity
+44-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:41:6-44:20
+45            android:name="com.example.wifi_info.FloorActivity"
+45-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:42:13-42
+46            android:label="@string/app_name" >
+46-->C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:43:13-45
+47        </activity>
+48    </application>
+49
+50</manifest>

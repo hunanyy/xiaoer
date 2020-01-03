@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_training.xml.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\layout\\activity_training.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_floor.xml.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\layout\\activity_floor.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_position.xml.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\layout\\activity_position.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Administrator\\Desktop\\wifi2\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    }
+]

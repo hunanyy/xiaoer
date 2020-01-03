@@ -1,0 +1,99 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:2:1-49:12
+	package
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:3:5-36
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+instrumentation
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:7:5-9:57
+	android:targetPackage
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:9:9-54
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:8:9-62
+uses-sdk
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:5-47
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:5-47
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:5-47
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:5-47
+INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:5-47
+	android:targetSdkVersion
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:15-44
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:11:5-47
+		INJECTED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:13:5-76
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:13:22-73
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:14:5-76
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:14:22-73
+application
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:16:5-47:19
+	android:label
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:19:9-41
+	android:icon
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:18:9-45
+	android:allowBackup
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:17:9-35
+	android:theme
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:20:9-40
+uses-library#android.test.runner
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:21:9-60
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:21:23-57
+activity#com.example.wifi_info.MainActivity
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:23:9-31:20
+	android:label
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:25:13-45
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:24:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:26:13-30:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:27:17-69
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:27:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:29:17-77
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:29:27-74
+activity#com.example.wifi_info.PositionActivity
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:32:9-35:20
+	android:label
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:34:13-45
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:33:13-45
+activity#com.example.wifi_info.TrainingActivity
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:36:9-39:20
+	android:label
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:38:13-45
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:37:13-45
+activity#com.example.wifi_info.FloorActivity
+ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:41:6-44:20
+	android:label
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:43:13-45
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\wifi2\app\src\main\AndroidManifest.xml:42:13-42
