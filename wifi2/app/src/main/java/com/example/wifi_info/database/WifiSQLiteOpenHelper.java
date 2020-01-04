@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class WifiSQLiteOpenHelper extends SQLiteOpenHelper {
 
-	public WifiSQLiteOpenHelper(Context context) {
-		super(context, "wifi.db", null, 1);
+	public WifiSQLiteOpenHelper(Context context, String name) {
+		super(context, name, null, 1);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,5 +1,6 @@
 package com.example.wifi_info.database;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -14,12 +15,19 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 
 public class WifiDao {
 	private WifiSQLiteOpenHelper helper;
+	private static String name;
 
 	public WifiDao(Context context) {
-		helper = new WifiSQLiteOpenHelper(context);
+		File dir = Environment.getExternalStoragePublicDirectory("000wifidb");
+		if(!dir.exists()){
+			dir.mkdir();
+		}
+		name = dir + "/wifi.db";
+		helper = new WifiSQLiteOpenHelper(context, name);
 	}
 
 	/**

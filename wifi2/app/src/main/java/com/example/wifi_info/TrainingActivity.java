@@ -102,7 +102,8 @@ public class TrainingActivity extends Activity implements ClickPointListener {
 					List<ScanResult> results = wifiManager.getScanResults();
 					stringBuffer = new StringBuffer();
 					// Collections.sort(results, new APLevelComparator());
-					int p = 1;
+
+					int pl_ay = 1;
 					for (ScanResult scanResult : results) {
 
 						Boolean bool = myAps(scanResult.SSID);
@@ -113,18 +114,19 @@ public class TrainingActivity extends Activity implements ClickPointListener {
 									+ scanResult.level + "\n");
 							// 存储数据
 							if (cb_saveData.isChecked()) {
-								//播放音乐
-								if(p == 1)
+								if(pl_ay == 1)
 								{
+									//播放音乐
 									Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 									Ringtone rt = RingtoneManager.getRingtone(getApplicationContext(), uri);
 									rt.play();
-									p=0;
+									pl_ay = 0;
 								}
 								wifidao.add(scanResult.SSID, scanResult.BSSID,
 										scanResult.level, position_X,
 										position_Y, scanResult.frequency, date);
 							}
+
 						}
 
 					}
