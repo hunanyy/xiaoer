@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <issue id="HardcodedText" severity="ignore" />
+    <issue id="LabelFor" severity="ignore" />
+    <issue id="NewApi">
+        <ignore path="src/com/example/wifi_info/TrainingActivity.java" />
+    </issue>
+    <issue id="SimpleDateFormat">
+        <ignore path="src/com/example/wifi_info/TrainingActivity.java" />
+    </issue>
+</lint>
