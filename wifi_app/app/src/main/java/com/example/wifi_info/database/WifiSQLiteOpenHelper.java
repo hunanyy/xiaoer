@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class WifiSQLiteOpenHelper extends SQLiteOpenHelper {
 
-	public WifiSQLiteOpenHelper(Context context) {
-		super(context, "wifi.db", null, 1);
+	public WifiSQLiteOpenHelper(Context context, String name) {
+		super(context, name, null, 1);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -16,14 +16,14 @@ public class WifiSQLiteOpenHelper extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 		db.execSQL("create table wifi("
 				+ "id integer primary key autoincrement,"
-				+ "ssid vachar(20), bssid vachar(20), posX real, posY real,posZ real, level real, frequency real, timestamp vachar(20))");
+				+ "ssid vachar(20), bssid vachar(20), posX real, posY real, level real, frequency real, timestamp vachar(20))");
 
 		db.execSQL("create table wifi_avg("
 				+ "id integer primary key autoincrement,"
-				+ "ssid vachar(20), bssid vachar(20), posX real, posY real, posZ real,level real, frequency real, timestamp vachar(20))");
+				+ "ssid vachar(20), bssid vachar(20), posX real, posY real, level real, frequency real, timestamp vachar(20))");
 		db.execSQL("create table wifi_gauss("
 				+ "id integer primary key autoincrement,"
-				+ "ssid vachar(20), bssid vachar(20), posX real, posY real, posZ real,level real, frequency real, timestamp vachar(20))");
+				+ "ssid vachar(20), bssid vachar(20), posX real, posY real, level real, frequency real, timestamp vachar(20))");
 
 	}
 

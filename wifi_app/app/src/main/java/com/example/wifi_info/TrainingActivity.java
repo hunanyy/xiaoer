@@ -12,7 +12,6 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -29,7 +28,7 @@ import com.example.wifi_info.tools.ApSet;
 
 public class TrainingActivity extends Activity implements ClickPointListener {
 
-	private static String MAP_NAME = null;// 地图文件
+	private static final String MAP_NAME = "1.svg";// 地图文件
 	private static final int Thread_SlEEP_TIME = 1000;
 
 	private static final int SCANF_COUNT = 30;// 存储次数
@@ -45,7 +44,6 @@ public class TrainingActivity extends Activity implements ClickPointListener {
 
 	private double position_X = 0.0;
 	private double position_Y = 0.0;
-	private double position_Z = 0.0;
 
 	private StringBuffer stringBuffer;
 
@@ -61,12 +59,6 @@ public class TrainingActivity extends Activity implements ClickPointListener {
 
 		wifidao = new WifiDao(this);
 
-		Intent intent = getIntent();
-		String value = intent.getStringExtra("floor");
-		
-		MAP_NAME = value+".svg";
-		
-		position_Z = Double.parseDouble(value);
 
 		// 加载SVG地图
 		mapView = (IPMapView) findViewById(R.id.map_view);
@@ -102,7 +94,8 @@ public class TrainingActivity extends Activity implements ClickPointListener {
 					String date = "0000-00-00 00:00:00:0000";
 					// 扫描时间
 					if (wifiManager.startScan()) {
-						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:ms");
+						SimpleDateFormat sdf = new SimpleDateFormat(
+								"yyyy-MM-dd HH:mm:ss:ms");
 						date = sdf.format(new java.util.Date());
 					}
 
@@ -110,26 +103,28 @@ public class TrainingActivity extends Activity implements ClickPointListener {
 					stringBuffer = new StringBuffer();
 					// Collections.sort(results, new APLevelComparator());
 
+					int pl_ay = 1;
 					for (ScanResult scanResult : results) {
 
 						Boolean bool = myAps(scanResult.SSID);
 
 						if (bool) {
-							stringBuffer.append("(" + position_X + "," + position_Y + ","+position_Z + ")"
-									+ scanResult.SSID + ".." + scanResult.level + "\n");
-
+							stringBuffer.append("(" + position_X + ","
+									+ position_Y + ")" + scanResult.SSID + ".."
+									+ scanResult.level + "\n");
 							// 存储数据
 							if (cb_saveData.isChecked()) {
-								//播放音乐
-								Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-								Ringtone rt = RingtoneManager.getRingtone(getApplicationContext(), uri);
-								rt.play();
-								/*Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-								Ringtone rt = RingtoneManager.getRingtone(getApplicationContext(), uri);
-								rt.play();*/
-
-								wifidao.add(scanResult.SSID, scanResult.BSSID, scanResult.level, position_X, position_Y,
-										position_Z, scanResult.frequency, date);
+								if(pl_ay == 1)
+								{
+									//播放音乐
+									Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+									Ringtone rt = RingtoneManager.getRingtone(getApplicationContext(), uri);
+									rt.play();
+									pl_ay = 0;
+								}
+								wifidao.add(scanResult.SSID, scanResult.BSSID,
+										scanResult.level, position_X,
+										position_Y, scanResult.frequency, date);
 							}
 
 						}
@@ -152,7 +147,7 @@ public class TrainingActivity extends Activity implements ClickPointListener {
 	 * 判断AP是否在清单中 HashSet<String> hs = (HashSet<String>) ApSet.getAps();
 	 */
 	private boolean myAps(String str) {
-		
+
 		if (hs.contains(str))
 			return true;
 

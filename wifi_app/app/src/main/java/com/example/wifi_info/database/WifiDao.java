@@ -1,5 +1,6 @@
 package com.example.wifi_info.database;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -14,12 +15,19 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 
 public class WifiDao {
 	private WifiSQLiteOpenHelper helper;
+	private static String name;
 
 	public WifiDao(Context context) {
-		helper = new WifiSQLiteOpenHelper(context);
+		File dir = Environment.getExternalStoragePublicDirectory("wifidb");
+		if(!dir.exists()){
+			dir.mkdir();
+		}
+		name = dir + "/wifi.db";
+		helper = new WifiSQLiteOpenHelper(context, name);
 	}
 
 	/**
@@ -34,10 +42,10 @@ public class WifiDao {
 	 * @param timestamp
 	 * @return
 	 */
-	public long add(String ssid, String bssid, int level, double posX, double posY, int frequency, String timestamp) {
+	public long add(String ssid, String bssid, int level, double posX,
+			double posY, int frequency, String timestamp) {
 		SQLiteDatabase db = helper.getWritableDatabase();
-		// db.execSQL("insert into wifi (ap_name, ap_level number) values
-		// (?,?)");
+		// db.execSQL("insert into wifi (ap_name, ap_level number) values (?,?)");
 		ContentValues values = new ContentValues();
 
 		values.put("ssid", ssid);
@@ -45,29 +53,6 @@ public class WifiDao {
 		values.put("level", level);
 		values.put("posX", posX);
 		values.put("posY", posY);
-		values.put("frequency", frequency);
-		values.put("timestamp", timestamp);
-
-		long id = db.insert("wifi", null, values);
-
-		db.close();
-
-		return id;
-	}
-
-	public long add(String ssid, String bssid, int level, double posX, double posY, double posZ, int frequency,
-			String timestamp) {
-		SQLiteDatabase db = helper.getWritableDatabase();
-		// db.execSQL("insert into wifi (ap_name, ap_level number) values
-		// (?,?)");
-		ContentValues values = new ContentValues();
-
-		values.put("ssid", ssid);
-		values.put("bssid", bssid);
-		values.put("level", level);
-		values.put("posX", posX);
-		values.put("posY", posY);
-		values.put("posZ", posZ);
 		values.put("frequency", frequency);
 		values.put("timestamp", timestamp);
 
@@ -91,8 +76,8 @@ public class WifiDao {
 	 * @return
 	 */
 
-	public long addGauss(String ssid, String bssid, double level, double posX, double posY, double posZ,int frequency,
-			String timestamp) {
+	public long addGauss(String ssid, String bssid, double level, double posX,
+			double posY, int frequency, String timestamp) {
 		SQLiteDatabase db = helper.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
@@ -102,7 +87,6 @@ public class WifiDao {
 		values.put("level", level);
 		values.put("posX", posX);
 		values.put("posY", posY);
-		values.put("posZ", posZ);
 		values.put("frequency", frequency);
 		values.put("timestamp", timestamp);
 
@@ -119,9 +103,9 @@ public class WifiDao {
 	public boolean avg() {
 		SQLiteDatabase db = helper.getReadableDatabase();
 		db.execSQL("delete from wifi_avg;");
-		db.execSQL("insert into wifi_avg" + "(ssid,bssid,level,posX,posY,posZ)"
-				+ " select ssid,bssid,round(avg(level),2) as level,posX,posY,posZ"
-				+ " from wifi group by posX,posY,posZ,bssid;");
+		db.execSQL("insert into wifi_avg" + "(ssid,bssid,level,posX,posY)"
+				+ " select ssid,bssid,round(avg(level),2) as level,posX,posY"
+				+ " from wifi group by posX,posY,bssid;");
 
 		db.close();
 		return true;
@@ -139,7 +123,7 @@ public class WifiDao {
 		SQLiteDatabase db = helper.getWritableDatabase();
 
 		StringBuffer sb = new StringBuffer();
-		sb.append("posX\t\tposY\t\tposX\t\t");
+		sb.append("posX\t\tposY\t\t");
 		sb.append(sql.trim());
 
 		String[] columns = sb.toString().split("\t\t");
@@ -155,8 +139,8 @@ public class WifiDao {
 
 		// 建立临时表temp
 		sb.delete(0, sb.length());
-		sb.append("create table temp(id integer primary key autoincrement, posX real, posY real,posZ real");
-		for (int i = 3; i < columns.length; i++) {
+		sb.append("create table temp(id integer primary key autoincrement, posX real, posY real");
+		for (int i = 2; i < columns.length; i++) {
 			sb.append(", ");
 			sb.append("'" + columns[i] + "'");
 			sb.append(" real");
@@ -166,21 +150,21 @@ public class WifiDao {
 
 		// 插入数据
 		sb.delete(0, sb.length());
-		sb.append("insert into temp(posX, posY,posZ");
-		for (int i = 3; i < columns.length; i++) {
+		sb.append("insert into temp(posX, posY");
+		for (int i = 2; i < columns.length; i++) {
 			sb.append(",");
 			sb.append("'" + columns[i] + "'");
 		}
 		sb.append(")\n");
-		sb.append("select  posX, posY,posZ");
-		for (int i = 3; i < columns.length; i++) {
+		sb.append("select  posX, posY");
+		for (int i = 2; i < columns.length; i++) {
 			sb.append(",");
 			sb.append("avg(case bssid when ");
 			sb.append("'" + columns[i] + "'");
 			sb.append(" then level end) ");
 			sb.append("'" + columns[i] + "'");
 		}
-		sb.append(" from wifi_gauss group by posX, posY,posZ;");
+		sb.append(" from wifi_gauss group by posX, posY;");
 
 		// System.out.println(sb.toString());
 		db.execSQL(sb.toString().trim());
@@ -192,9 +176,10 @@ public class WifiDao {
 
 		while (cursor.moveToNext()) {
 
-			double posX = Double.parseDouble(cursor.getString(cursor.getColumnIndex("posX")));
-			double posY = Double.parseDouble(cursor.getString(cursor.getColumnIndex("posY")));
-			double posZ = Double.parseDouble(cursor.getString(cursor.getColumnIndex("posZ")));
+			double posX = Double.parseDouble(cursor.getString(cursor
+					.getColumnIndex("posX")));
+			double posY = Double.parseDouble(cursor.getString(cursor
+					.getColumnIndex("posY")));
 
 			String[] bssids = new String[columns.length - 2];
 			double[] levels = new double[columns.length - 2];
@@ -204,7 +189,8 @@ public class WifiDao {
 				try {
 
 					bssids[i] = cursor.getColumnName(i + 3);
-					levels[i] = Double.parseDouble(cursor.getString(cursor.getColumnIndex(columns[i + 2])));
+					levels[i] = Double.parseDouble(cursor.getString(cursor
+							.getColumnIndex(columns[i + 2])));
 
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -218,7 +204,7 @@ public class WifiDao {
 			for (int i = 0; i < bssids.length; i++)
 				li.add(new Infor(bssids[i], levels[i]));
 
-			Point p = new Point(new Position(posX, posY, posZ), li);
+			Point p = new Point(new Position(posX, posY), li);
 			points.add(p);
 		}
 
@@ -257,15 +243,17 @@ public class WifiDao {
 
 		while (cursor.moveToNext()) {
 
-			double posX = Double.parseDouble(cursor.getString(cursor.getColumnIndex("posX")));
-			double posY = Double.parseDouble(cursor.getString(cursor.getColumnIndex("posY")));
-			double posZ = Double.parseDouble(cursor.getString(cursor.getColumnIndex("posZ")));
+			double posX = Double.parseDouble(cursor.getString(cursor
+					.getColumnIndex("posX")));
+			double posY = Double.parseDouble(cursor.getString(cursor
+					.getColumnIndex("posY")));
 
-			Position pos = new Position(posX, posY,posZ);
+			Position pos = new Position(posX, posY);
 
 			String bssid = cursor.getString(cursor.getColumnIndex("bssid"));
 
-			double level = Double.parseDouble(cursor.getString(cursor.getColumnIndex("level")));
+			double level = Double.parseDouble(cursor.getString(cursor
+					.getColumnIndex("level")));
 
 			list_item.add(new Item(pos, bssid, level));
 

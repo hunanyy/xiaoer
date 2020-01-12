@@ -7,6 +7,14 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
+* .DS_Store
+* .idea/
+* .idea/codeStyles/
+* .idea/codeStyles/Project.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/wifi.iml
+* .idea/workspace.xml
 * hs_err_pid1228.log
 * hs_err_pid2284.log
 * hs_err_pid3620.log
@@ -30,19 +38,19 @@ the .jar file in your project was of an older version than the
 dependency we picked, which could render the project not compileable.
 You can disable the jar replacement in the import wizard and try again:
 
-android-support-v4.jar => com.android.support:support-v4:18.+
+android-support-v4.jar => com.android.support:support-v4:20.+
 
 Moved Files:
 ------------
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => app\src\main\AndroidManifest.xml
-* assets\ => app\src\main\assets\
-* bin\res\ => app\src\androidTest\res\
-* lint.xml => app\lint.xml
-* res\ => app\src\main\res\
-* src\ => app\src\main\java\
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* assets/ => app/src/main/assets/
+* bin/res/ => app/src/androidTest/res/
+* lint.xml => app/lint.xml
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
 
 Next Steps:
 -----------

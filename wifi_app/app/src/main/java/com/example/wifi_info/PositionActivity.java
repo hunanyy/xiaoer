@@ -34,10 +34,10 @@ import android.widget.Toast;
 
 public class PositionActivity extends Activity implements ClickPointListener {
 
-	// 地图文件名
-	private static String MAP_NAME = null;
-	private static final int Thread_SlEEP_TIME = 300;
-	private static final int NUM_N = 5;// 取平均次数
+	// ��ͼ�ļ���
+	private static final String MAP_NAME = "1.svg";
+	private static final int Thread_SlEEP_TIME = 1000/3;
+	private static final int NUM_N = 30;// ȡƽ������
 
 	private static HashSet<String> hs = (HashSet<String>) ApSet.getAps();
 
@@ -58,48 +58,47 @@ public class PositionActivity extends Activity implements ClickPointListener {
 		wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
 		wifidao = new WifiDao(this);
 
-		
-		position_1();
-	}
-
-	/**
-	 * 定位
-	 */
-	public void position_1() {
-
-		Map<String, double[]> hm = myThread("");// 记录实时wifi信息。
-
-		List<Infor> infors = gauss(hm);// 高斯计算
-
-		Collections.sort(infors);// 按Level值对AP排序
-
-		int[] apIndex = apChoose(infors);// 确定选用AP的索引
-
-		tv_test.setText(infors.toString());
-
-		StringBuffer sql = linkedSql(infors, apIndex);// 拼接sql
-
-		List<Point> points = wifidao.returnTempTable(sql.toString());// 训练数据datas
-
-		System.out.print("points" + points);
-
-		Position position = new WKNN().method(points, infors);
-
-		MAP_NAME = (int) position.getPosZ() + ".svg";
-
-		// 加载SVG地图
+		// ����SVG��ͼ
 		mapView = (IPMapView) findViewById(R.id.map_view);
 		mapView.setMeasureMode(true);
 		mapView.setClickPointListener(this);
+
 		byte[] svgBytes = loadAssetsFile(this, MAP_NAME);
 
 		ByteArrayInputStream bin = new ByteArrayInputStream(svgBytes);
 		mapView.newMap(bin);
 
-		System.out.println("定位结果：" + position);
-		Toast.makeText(this, "定位结果：X=" + position.getPosX() + " Y=" + position.getPosY()+ " Z=" + position.getPosZ(), Toast.LENGTH_LONG).show();
+	}
 
-		display(position);// 显示出坐标
+	/**
+	 * ��λ
+	 */
+	public void position(View view) {
+
+		Map<String, double[]> hm = myThread("");// ��¼ʵʱwifi��Ϣ��
+
+		List<Infor> infors = gauss(hm);// ��˹����
+
+		Collections.sort(infors);// ��Levelֵ��AP����
+
+		int[] apIndex = apChoose(infors);// ȷ��ѡ��AP������
+
+		tv_test.setText(infors.toString());
+
+		StringBuffer sql = linkedSql(infors, apIndex);// ƴ��sql
+
+		List<Point> points = wifidao.returnTempTable(sql.toString());// ѵ������datas
+
+		System.out.print("points" + points);
+
+		Position position = new WKNN().method(points, infors);
+
+		System.out.println("��λ�����" + position);
+		Toast.makeText(this,
+				"��λ�����X=" + position.getPosX() + " Y=" + position.getPosY(),
+				Toast.LENGTH_LONG).show();
+
+		display(position);// ��ʾ������
 
 	}
 
@@ -109,7 +108,8 @@ public class PositionActivity extends Activity implements ClickPointListener {
 		List<Infor> infor = new ArrayList<Infor>();
 
 		for (Map.Entry<String, double[]> entry : hm.entrySet()) {
-			infor.add(new Infor(entry.getKey(), Gaussian.gauss(entry.getValue())));
+			infor.add(new Infor(entry.getKey(),
+					Gaussian.gauss(entry.getValue())));
 		}
 
 		return infor;
@@ -117,7 +117,7 @@ public class PositionActivity extends Activity implements ClickPointListener {
 	}
 
 	/**
-	 * 显示出坐标
+	 * ��ʾ������
 	 * 
 	 * @param position
 	 */
@@ -144,7 +144,7 @@ public class PositionActivity extends Activity implements ClickPointListener {
 	}
 
 	/**
-	 * 拼接所选ap的bssid，使用\t\t作为分隔符
+	 * ƴ����ѡap��bssid��ʹ��\t\t��Ϊ�ָ���
 	 * 
 	 * @param infors
 	 * @param apIndex
@@ -159,12 +159,12 @@ public class PositionActivity extends Activity implements ClickPointListener {
 		}
 		sql.delete(sql.length() - 2, sql.length());
 
-		// System.out.println("选择的AP:" + sql.toString());
+		// System.out.println("ѡ���AP:" + sql.toString());
 		return sql;
 	}
 
 	/**
-	 * 搜集实时AP信息，取均值。 线程未实现
+	 * �Ѽ�ʵʱAP��Ϣ��ȡ��ֵ�� �߳�δʵ��
 	 * 
 	 * @param str
 	 */
@@ -174,7 +174,7 @@ public class PositionActivity extends Activity implements ClickPointListener {
 
 		Map<String, double[]> hm = new HashMap<String, double[]>();
 
-		// 循环控制扫描次数
+		// ѭ������ɨ�����
 		while (i < NUM_N) {
 
 			try {
@@ -194,10 +194,12 @@ public class PositionActivity extends Activity implements ClickPointListener {
 
 				if (myAps(scanResult.SSID)) {
 
-					System.out.println(scanResult.SSID + "   " + scanResult.level);
+					System.out.println(scanResult.SSID + "   "
+							+ scanResult.level);
 
 					if (!hm.containsKey(scanResult.BSSID)) {
-						hm.put(scanResult.BSSID, new double[] { scanResult.level * 1.0 });
+						hm.put(scanResult.BSSID,
+								new double[] { scanResult.level * 1.0 });
 					} else {
 
 						double[] arr = hm.get(scanResult.BSSID);
@@ -219,7 +221,7 @@ public class PositionActivity extends Activity implements ClickPointListener {
 	}
 
 	/**
-	 * 确定选用的ap位置
+	 * ȷ��ѡ�õ�apλ��
 	 * 
 	 * @param myResults
 	 * @return
@@ -246,16 +248,17 @@ public class PositionActivity extends Activity implements ClickPointListener {
 
 		DecimalFormat df = new DecimalFormat("######0.00");
 
-		// 调整比例
+		// ��������
 		x = (x - 7) / 37.63;
 		y = (2032 - y) / 37.63;
 
 		x = Double.parseDouble(df.format(x));
 		y = Double.parseDouble(df.format(y));
 
-		Toast.makeText(this, "实际坐标(" + x + ", " + y + ")", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "ʵ������(" + x + ", " + y + ")",
+				Toast.LENGTH_LONG).show();
 
-		Log.e("", " 点击 X：" + x + "  Y:" + y);
+		Log.e("", " ��� X��" + x + "  Y:" + y);
 	}
 
 	public static byte[] loadAssetsFile(Context context, String fileName) {
@@ -274,14 +277,17 @@ public class PositionActivity extends Activity implements ClickPointListener {
 	}
 
 	/***
-	 * 判断AP是否在清单中 HashSet<String> hs = (HashSet<String>) ApSet.getAps();
+	 * �ж�AP�Ƿ����嵥�� HashSet<String> hs = (HashSet<String>) ApSet.getAps();
 	 */
 	private boolean myAps(String str) {
-
+		
+		
+		return true;
+/*
 		if (hs.contains(str))
 			return true;
 
-		return false;
+		return false;*/
 
 	}
 }

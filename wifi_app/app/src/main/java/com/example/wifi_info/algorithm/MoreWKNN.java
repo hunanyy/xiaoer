@@ -7,7 +7,7 @@ import com.example.wifi_info.tools.Infor;
 import com.example.wifi_info.tools.Point;
 import com.example.wifi_info.tools.Position;
 
-public class WKNN {
+public class MoreWKNN {
 
 	public Position method(List<Point> points, List<Infor> infors) {
 

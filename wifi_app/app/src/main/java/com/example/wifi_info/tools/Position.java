@@ -11,14 +11,15 @@ public class Position {
 
 	private double posX;
 	private double posY;
-
+	
 	private double posZ;
+	
+	
 
-	public Position(double posX, double posY, double posZ) {
+	public Position(double posX, double posY) {
 		super();
 		this.posX = posX;
 		this.posY = posY;
-		this.posZ = posZ;
 	}
 
 	public double getPosX() {
@@ -37,18 +38,10 @@ public class Position {
 		this.posY = posY;
 	}
 
-	public double getPosZ() {
-		return posZ;
-	}
-
-	public void setPosZ(double posZ) {
-		this.posZ = posZ;
-	}
-
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "\n(posX, posY,posZ) = (" + posX + ", " + posY + posZ + ")";
+		return "\n(posX, posY) = (" + posX + ", " + posY + ")";
 	}
 
 	@Override
@@ -69,7 +62,6 @@ public class Position {
 
 		double x = Math.abs(this.getPosX() - pos.posX);
 		double y = Math.abs(this.getPosY() - pos.posY);
-		double z = Math.abs(this.getPosZ() - pos.posZ);
 
 		if (x < 0.001 && y < 0.001)
 			return true;

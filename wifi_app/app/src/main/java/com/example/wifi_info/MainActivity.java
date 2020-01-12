@@ -29,14 +29,10 @@ public class MainActivity extends Activity {
 	// 训练模式
 	public void training(View view) {
 		Intent intent = new Intent();
-		intent.setClass(MainActivity.this, FloorActivity.class);
+		intent.setClass(MainActivity.this, TrainingActivity.class);
 		startActivity(intent);
 	}
 
-	
-
-	
-	
 	// 定位模式
 	public void position(View view) {
 		Intent intent = new Intent();
@@ -147,7 +143,7 @@ public class MainActivity extends Activity {
 			System.out.println("gauss计算后avg:" + gauss);
 
 			dao.addGauss(null, itemLevels.getBssid(), gauss, itemLevels
-					.getPos().getPosX(), itemLevels.getPos().getPosY(),itemLevels.getPos().getPosZ(), 0, null);
+					.getPos().getPosX(), itemLevels.getPos().getPosY(), 0, null);
 
 		}
 
