@@ -9,11 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/tv_wifiinfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+    <!--
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -33,5 +29,92 @@
         android:checked="false"
         android:textSize="12sp"
         android:text="保存数据" />
+	-->
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:keepScreenOn="true"
+        android:weightSum="1">
+
+        <LinearLayout android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView0"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="Phone type" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="@string/texto_cabecera" />
+
+                    <TextView
+                        android:id="@+id/textView1b"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="@string/texto_vacio" />
+                        
+           			<TextView
+		                android:id="@+id/textView1a"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/texto_vacio" />
+
+	                <TextView
+				        android:id="@+id/tv_wifiinfo"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:textSize="12sp"/>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+                
+    </LinearLayout>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:gravity="center"  
+		android:layout_gravity="center"
+		android:textSize="8sp"
+		android:orientation="horizontal" >
+	
+		<ToggleButton
+	        android:id="@+id/togglebuttonsave"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="12sp"
+	        android:textOff="@string/texto_Save_Log_file"
+	        android:textOn="@string/texto_Stop_Saving_file" />
+
+	    <Button 
+	    	android:id="@+id/BtnBotonMarkPosition"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="12sp"
+	        android:text="@string/MarkPosition" />		
+	</LinearLayout>
+
 
 </RelativeLayout>

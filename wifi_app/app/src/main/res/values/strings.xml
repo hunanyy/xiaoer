@@ -4,5 +4,13 @@
     <string name="app_name">wifi显示</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="texto_internal">Internal Sensors:</string>
+    <string name="texto_Save_Log_file">Start</string>
+    <string name="texto_Stop_Saving_file">Stop</string>
+    <string name="texto_cabecera">SENSOR TYPE</string>
+    <string name="texto_vacio"></string>
+    <string name="MarkPosition">Mark</string>string>
+
+
 
 </resources>
