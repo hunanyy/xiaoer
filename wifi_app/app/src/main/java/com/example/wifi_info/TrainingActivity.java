@@ -105,7 +105,7 @@ import com.estimote.sdk.MacAddress;
 
 public class TrainingActivity extends Activity implements SensorEventListener, ClickPointListener {
 
-	private static final String MAP_NAME = "1.svg";// 地图文件
+	private static final String MAP_NAME = "xiaoer.svg"; 	/* "1.svg";// 地图文件 */
 	private static final int Thread_SlEEP_TIME = 1000;
 
 	private static final int SCANF_COUNT = 30;// 存储次数
@@ -392,10 +392,16 @@ public class TrainingActivity extends Activity implements SensorEventListener, C
 	public void onPointClick(double x, double y) {
 
 		DecimalFormat df = new DecimalFormat("######0.00");
+		
+		/*// 调整比例
+ 		x = (x - 7) / 60;
+	 	y = (2365 - y) / 43.45;*/
 
-		// 调整比例
-		x = (x - 7) / 37.63;
-		y = (2032 - y) / 37.63;
+ 		x = (x - 7) / 60;	//adapt new map
+	 	y = (2365 - y) / 43.45;
+
+		x = (int)x + 0.5;	//default click map center
+		y = (int)y + 0.5;
 
 		position_X = Double.parseDouble(df.format(x));
 		position_Y = Double.parseDouble(df.format(y));

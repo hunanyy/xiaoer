@@ -332,8 +332,11 @@ public class IPMapView extends View {
 								i++;
 								aCoordinate[1] = aPathRout[i];
 							}
-							aPath.moveTo(Float.parseFloat(aCoordinate[0]),
-									Float.parseFloat(aCoordinate[1]));
+							//aPath.moveTo(Float.parseFloat(aCoordinate[0]),
+									//Float.parseFloat(aCoordinate[1]));  
+							aPath.moveTo(
+									(Float.parseFloat(aCoordinate[0]) * mWidth),	// 2020.1.14 SVG
+									(Float.parseFloat(aCoordinate[1]) * mHeight));		
 							break;
 						case 'm':
 							aPathRout[i] = aPathRout[i].substring(1);
@@ -365,8 +368,11 @@ public class IPMapView extends View {
 								i++;
 								aCoordinate[1] = aPathRout[i];
 							}
-							aPath.lineTo(Float.parseFloat(aCoordinate[0]),
-									Float.parseFloat(aCoordinate[1]));
+							//aPath.lineTo(Float.parseFloat(aCoordinate[0]),
+								//	Float.parseFloat(aCoordinate[1]));
+							aPath.lineTo(
+									(Float.parseFloat(aCoordinate[0]) * mWidth),
+									(Float.parseFloat(aCoordinate[1]) * mHeight));
 							break;
 						case 'l':
 							aPathRout[i] = aPathRout[i].substring(1);

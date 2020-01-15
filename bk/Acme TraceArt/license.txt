@@ -1,0 +1,79 @@
+Acme TraceArt.  Copyright (C) 2014 DWGTOOL Software.
+All rights reserved.
+
+1. LICENSE AGREEMENT
+--------------------------------------------------
+You should carefully read the following terms and conditions before
+using this software. Your use of this software indicates your 
+acceptance of this license agreement and warranty.
+
+1.1. DISTRIBUTION
+
+This shareware software may be freely distributed, provided that:
+
+  1.1.1. Such distribution includes only the original archive supplied by 
+             DWGTOOL Software.  You may not alter, delete or add any files in the distribution archive.
+  1.1.2. The distribution does not include a user code and registration number.  In 
+             particular, you may not distribute a registered version of TraceART.
+  1.1.3. No money is charged to the person receiving the software, beyond 
+             reasonable cost of packaging and other overhead.
+
+1.2. LICENSE
+
+   By receiving and/or using TraceART software, you accept the following Evaluation and 
+   Registered User Agreement.  This agreement is a binding legal agreement between 
+   DWGTOOL Software. and the purchasers, users or evaluators of DWGTOOL' software and 
+   products.  If you do not intend to honor this agreement, remove all installed  TraceART 
+   software from your computer now.
+
+1.3. Usage and distribution restrictions
+
+   The evaluator/user/buyer/owner may not use or distribute TraceART software for any 
+   unlawful purpose.  
+
+   The evaluator/user/buyer/owner is not allowed to attempt to reverse engineer, 
+   disassemble or decompile TraceART software. 
+
+1.4 Copyright restriction
+
+   All parts of TraceART software are copyright protected. 
+
+1.5. Licensed software restrictions
+
+   Each registered copy of the TraceART software may be used in only one single 
+   location by one user.  Use of the software means that you have loaded the program and 
+   run it or have installed the program onto a computer.  If you install the software onto a 
+   multi-user platform or network, each and every individual user of the software must be 
+   registered separately.
+
+   You may make one copy of the registered software for backup purposes, providing you 
+   only have one copy installed on one computer being used by one person. 
+
+   The sale of and or distribution of registered copies of this software is strictly forbidden.  It 
+   is a violation of this agreement to loan, rent, lease, borrow, or transfer the use of 
+   registered copies of TraceART Software.
+
+2. Getting program updates
+--------------------------------------------
+   You may download TraceART from the following sources:
+
+      http://www.dwgtool.com/download.htm
+
+3. How to get technical support and contribute feedback
+--------------------------------------------
+   3.1 Technical Support
+         Registered users are entitled to technical support, should the need arise.  Please 
+         contacts us by email at support@dwgtool.com
+
+   3.2 Feedback
+        If you have any comments or concerns about TraceArt please direct them to 
+        <support@dwgtool.com>.Your feedback is important to us in order to get an idea of 
+        how to make TraceArt a better product for you.  Many of TraceArt's features and 
+        significant portions of TraceArt's interface have been heavily influenced by comments 
+        from users.  So if you have a good idea for an new feature, or a better way of doing 
+        something, please drop us an note.
+
+4. Contacting DWGTOOL Software
+--------------------------------------------
+   e-mail:	support@dwgtool.com
+   web:	        http://www.dwgtool.com
